@@ -114,3 +114,34 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
+
+---------------------------------------------------------------------------------------
+  import React, { useEffect } from 'react';
+import { View, Text, Alert, StyleSheet } from 'react-native';
+
+export default function HomeScreen() {
+  useEffect(() => {
+    Alert.alert('¡Bienvenid al home!');
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>Pantalla Home</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#e5f9e0',
+  },
+  welcomeText: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#37DB04',
+  },
+});
+
