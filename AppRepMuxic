@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+export default function AlbumComponent() {
+  const [liked, setLiked] = useState(false);
+
+  return (
+    <View style={styles.albumContainer}>
+      <Image source={require('./assets/image.png')} style={styles.albumImage} />
+      <Text style={styles.songTitle}>Departures - Anata Ni Okuru Ai No Uta</Text>
+      <Text style={styles.artistName}>Egoist</Text>
+      
+      <TouchableOpacity onPress={() => setLiked(!liked)} style={styles.likeButton}>
+        <FontAwesome 
+          name="heart" 
+          size={24} 
+          color={liked ? "red" : "gray"} 
+        />
+      </TouchableOpacity>
+
+      <View style={styles.controls}>
+        <TouchableOpacity>
+          <FontAwesome name="backward" size={24} color="black" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity>
+          <FontAwesome name="play" size={24} color="black" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity>
+          <FontAwesome name="forward" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  albumContainer: {
+    alignItems: 'center',
+    padding: 20,
+    marginTop: 150,
+  },
+  albumImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+  },
+  songTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  artistName: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  likeButton: {
+    marginVertical: 10,
+  },
+  controls: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 120,
+    marginTop: 10,
+  },
+});
